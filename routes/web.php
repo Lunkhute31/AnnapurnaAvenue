@@ -30,7 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/admin/dashboard',[AdminController::class,'getdashboard'])->middleware('auth')->name('admin.dashboard');
-Route::get('/vendor/dashboard',[VendorController::class,'getdashboard'])->middleware('auth')->name('vendor.dashbaord');
+
+
+Route::get('/auth/error',function(){
+    return view('autherror');
+})->name('auth.error');
 
 require __DIR__.'/auth.php';
