@@ -36,4 +36,6 @@ Route::get('/auth/error',function(){
     return view('autherror');
 })->name('auth.error');
 
+Route::get('admin/login',[AdminController::class,'login'])->name('admin.login');
+
 require __DIR__.'/auth.php';
