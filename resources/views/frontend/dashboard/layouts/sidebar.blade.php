@@ -12,6 +12,6 @@
       <li><a href="dsahboard_wishlist.html"></i> Wishlist</a></li>
       <li><a href="dsahboard_profile.html"></i> My Profile</a></li>
       <li><a href="dsahboard_address.html"></i> Addresses</a></li>
-      <li><a href="#"> Log out</a></li>
+      <li><a href="{{route('logout')}}"> Log out</a></li>
     </ul>
   </div>
