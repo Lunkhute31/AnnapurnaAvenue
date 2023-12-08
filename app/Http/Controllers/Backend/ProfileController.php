@@ -34,4 +34,6 @@ $request->user()->update([
 toastr()->success('Password Updated Successfully');
 return redirect()->back();
     }
+
+
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\UserProfileController;
 use App\Http\Controllers\Backend\VendorController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -38,4 +39,12 @@ Route::get('/auth/error',function(){
 
 Route::get('admin/login',[AdminController::class,'login'])->name('admin.login');
 
+
+
 require __DIR__.'/auth.php';
+Route::group(['middleware'=>['auth','verified'],'prefix'=>'user','as'=>'user.'],function(){
+    Route::get('updateprofile',[UserProfileController::class,'UpdateUserProfile'])->name('update');
+    Route::get('dashboard',[UserProfileController::class,'displayDashboard'])->name('dashboard');
+    Route::put('updateprofile',[UserProfileController::class,'UpdateProfile'])->name('profile.update');
+});
+
